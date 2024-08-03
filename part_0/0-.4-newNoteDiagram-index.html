@@ -3,16 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0.4: New note diagram</title>
+  <title>Part 0</title>
 </head>
 <body>
 
-  <pre class="mermaid">
-        graph TD
-        A[Client] --> B[Load Balancer]
-        B --> C[Server01]
-        B --> D[Server02]
-</pre>
+    <section>
+      <h1>Part 0 - Ejercicios resueltos</h1>
+      <article>
+        <p>Ejercicio 0.4: New note diagram</p>
+
+        <pre class="mermaid">
+          
+    sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server->>browser: HTTP status 302 - Create a new note - Ask to perfoms a GET
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server->>browser: CSS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server->>browser: JS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server->>browser: JSON file
+    deactivate server
+ 
+      </pre>
+      </article>
+    </section>
+
+  
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
